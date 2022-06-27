@@ -7,8 +7,8 @@ import java.io.FileNotFoundException;
 
 public class Resource {
 
-    public static Image getResource(String path) throws FileNotFoundException {
-        return new Image(new FileInputStream(path));
+    public static FileInputStream getResource(String path) throws FileNotFoundException {
+        return new FileInputStream(path);
     }
 
 }

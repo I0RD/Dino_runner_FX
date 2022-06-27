@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import pl.programming.environment.Clouds;
 import pl.programming.environment.Land;
 import pl.programming.environment.Sun;
 
@@ -28,6 +29,8 @@ public class MainWindow extends Application {
         primaryStage.setScene(mainScene);
         Sun sun=new Sun();
         root.getChildren().add(sun.sunBox);
+        Clouds clouds=new Clouds();
+        root.getChildren().add(clouds.cloudsBox);
         final long[] startNanoTime = {System.nanoTime()};
         new AnimationTimer() {
             public void handle ( long currentNanoTime){

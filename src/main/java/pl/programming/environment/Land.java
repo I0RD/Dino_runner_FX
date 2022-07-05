@@ -19,10 +19,10 @@ public class Land {
     }
     public void generate() {
         if (lands.size() * landOne.getWidth() < 771) {
-            switch (new Random().nextInt(4)) {
-                case 1 -> lands.add(landOne);
-                case 2 -> lands.add(landTwo);
-                case 3 -> lands.add(landThree);
+            switch (new Random().nextInt(3)) {
+                case 0 -> lands.add(landOne);
+                case 1 -> lands.add(landTwo);
+                case 2 -> lands.add(landThree);
             }
             generate();
         }
@@ -41,7 +41,7 @@ public class Land {
                 if(posX>71)
                 {
                     startNanoTime[0] = System.nanoTime();
-                    MainWindow.speed+=2.5;
+                    MainWindow.speed+=1.25;
                     lands.remove(0);
                     generate();
                 }

@@ -21,13 +21,14 @@ public class MainWindow extends Application {
         primaryStage.setHeight(400);
         primaryStage.setWidth(700);
         new Land();
-        new Enemy();
+        root.getChildren().add(new EnemyManager().enemyBox);
         root.getChildren().add(canvas);
+        canvas.toBack();
         mainScene = new Scene(root, Color.web("#f7f7f7"));
         primaryStage.setScene(mainScene);
-        new Dino();
-        new Sun();
-        new Clouds();
+        root.getChildren().add(new Dino().dinoBox);
+        root.getChildren().add(new Sun().sunBox);
+        root.getChildren().add(new Clouds().cloudsBox);
         primaryStage.show();
     }
     public static void main(String[] args) {Application.launch(args);}

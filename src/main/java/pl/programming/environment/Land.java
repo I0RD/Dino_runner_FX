@@ -15,7 +15,6 @@ public class Land {
     public ArrayList<Image>lands=new ArrayList<>();
     public Land() throws FileNotFoundException {
         generate();
-        update();
     }
     public void generate() {
         if (lands.size() * landOne.getWidth() < 771) {
@@ -27,7 +26,6 @@ public class Land {
             generate();
         }
     }
-
     public void update()
     {
         final long[] startNanoTime = {System.nanoTime()};

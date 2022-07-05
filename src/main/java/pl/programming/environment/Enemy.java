@@ -1,18 +1,15 @@
 package pl.programming.environment;
 
-import javafx.animation.AnimationTimer;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import pl.programming.MainWindow;
 import pl.programming.utilities.Resource;
 import java.io.FileNotFoundException;
 import java.util.Random;
 
 public class Enemy{
-    public ImageView cactus = null;
-    public double posX;
-    public double posY;
+    private ImageView cactus = null;
+    private double posX;
+    private double posY;
 
     public Enemy(double posX) throws FileNotFoundException {
         switch (new Random().nextInt(2)) {
@@ -25,6 +22,22 @@ public class Enemy{
                 this.posY=320;
             }
         }
+        this.posX=posX;
+    }
+    public ImageView getImage()
+    {
+        return cactus;
+    }
+    public double getPosX()
+    {
+        return posX;
+    }
+    public double getPosY()
+    {
+        return posY;
+    }
+    public void setPosX(double posX)
+    {
         this.posX=posX;
     }
 }

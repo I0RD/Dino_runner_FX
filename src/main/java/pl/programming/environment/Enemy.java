@@ -36,8 +36,5 @@ public class Enemy{
     {
         return posY;
     }
-    public void setPosX(double posX)
-    {
-        this.posX=posX;
-    }
+    public void setPosX(double posX) {this.posX=posX;}
 }

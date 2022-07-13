@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class EnemyManager {
     public Group enemyBox=new Group();
-    private ArrayList<Enemy> enemies=new ArrayList<>();
+    private final ArrayList<Enemy> enemies=new ArrayList<>();
     public EnemyManager() {}
     public void generate() {
         for(int count= enemyBox.getChildren().size();count<6;count++)
@@ -47,5 +47,27 @@ public class EnemyManager {
                 }
             }
         }.start();
+    }
+    public double getX(int o)
+    {
+        return enemies.get(o).getPosX();
+    }
+    public double getY(int o)
+    {
+        return enemies.get(o).getPosY();
+    }
+    public double getW(int o)
+    {
+        return enemies.get(o).getImage().getImage().getWidth()-80;
+    }
+    public double getH(int o)
+    {
+        return enemies.get(o).getImage().getImage().getHeight();
+    }
+    public void reflash()
+    {
+        enemies.removeAll(enemies);
+        enemyBox.getChildren().removeAll(enemyBox.getChildren());
+        generate();
     }
 }

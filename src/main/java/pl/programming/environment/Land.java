@@ -24,6 +24,9 @@ public class Land {
                 case 2 -> lands.add(landThree);
             }
             generate();
+            for (int count = 0; count*landOne.getWidth() < 771; count++) {
+                MainWindow.canvas.getGraphicsContext2D().drawImage(lands.get(count), count * landOne.getWidth(), 331);
+            }
         }
     }
     public void update()
@@ -34,12 +37,11 @@ public class Land {
                 double posX = ((currentNanoTime - startNanoTime[0]) / 1000000000.0)* MainWindow.speed;
                 for (int count = 0; count*landOne.getWidth() < 771; count++) {
                     MainWindow.canvas.getGraphicsContext2D().drawImage(lands.get(count), count * landOne.getWidth()-posX, 331);
-                    MainWindow.canvas.getGraphicsContext2D().restore();
                 }
                 if(posX>71)
                 {
                     startNanoTime[0] = System.nanoTime();
-                    MainWindow.speed+=1.25;
+                    MainWindow.speed+=0.5;
                     lands.remove(0);
                     generate();
                 }

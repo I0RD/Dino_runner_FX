@@ -1,12 +1,9 @@
 package pl.programming;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import pl.programming.environment.*;
@@ -30,9 +27,10 @@ public class MainWindow extends Application {
         canvas.toBack();
         mainScene = new Scene(root, Color.web("#f7f7f7"));
         primaryStage.setScene(mainScene);
-        root.getChildren().add(new GameManager().dino.dinoBox);
-        root.getChildren().add(new Sun().sunBox);
-        root.getChildren().add(new Clouds().cloudsBox);
+        root.getChildren().add(gameManager.dino.dinoBox);
+        root.getChildren().add(gameManager.sun.sunBox);
+        root.getChildren().add(gameManager.score);
+        root.getChildren().add(gameManager.clouds.cloudsBox);
         gameManager.game();
         primaryStage.show();
     }

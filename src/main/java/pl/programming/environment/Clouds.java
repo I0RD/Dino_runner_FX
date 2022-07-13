@@ -8,7 +8,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 import pl.programming.utilities.Resource;
-
 import java.io.FileNotFoundException;
 import java.util.Random;
 
@@ -22,13 +21,18 @@ public class Clouds {
             clouds[count].translateXProperty().set(800+new Random().nextInt(120));
             clouds[count].translateYProperty().set(new Random().nextInt(120));
             cloudsBox.getChildren().add(clouds[count]);
+        }
+    }
+    public void update()
+    {
+        for(int count=0;count<clouds.length;count++) {
             KeyValue keyValue = new KeyValue(clouds[count].translateXProperty(), -300);
             KeyFrame keyFrame = new KeyFrame(Duration.seconds(30), keyValue);
             Timeline timeline = new Timeline(keyFrame);
             timeline.play();
             int finalCount = count;
             timeline.setOnFinished(actionEvent -> {
-                clouds[finalCount].translateXProperty().set(800+new Random().nextInt(120));
+                clouds[finalCount].translateXProperty().set(800 + new Random().nextInt(120));
                 timeline.play();
             });
         }
